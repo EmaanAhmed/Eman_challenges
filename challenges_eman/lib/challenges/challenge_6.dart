@@ -41,6 +41,9 @@ class _Challenge6State extends State<Challenge6> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Challenge 6'),
+      ),
       backgroundColor: Colors.deepPurple.shade50,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

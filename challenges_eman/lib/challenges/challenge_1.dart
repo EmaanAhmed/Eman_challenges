@@ -10,6 +10,9 @@ class _Challenge1State extends State<Challenge1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Challenge 1'),
+      ),
       backgroundColor: Colors.purple.shade50,
       body: GestureDetector(
         behavior: HitTestBehavior.opaque,

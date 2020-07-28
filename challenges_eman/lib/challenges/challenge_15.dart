@@ -9,18 +9,36 @@ class Challenge15 extends StatefulWidget {
 
 class _Challenge15State extends State<Challenge15> {
   String sentence = '';
+  String result;
+  String reversedSentence = '';
 
   void setSentence(String input) {
     sentence = input;
   }
 
   void countWords() {
-    sentence.split(RegExp(' |.'));
+//    sentence.split(RegExp(r"(\w+)[\s-\.]"));
+  setState(() {
+    reversedSentence = '';
+  });
+    List<String> words = sentence.split(RegExp(r"[\s-\.]"));
+    setState(() {
+      result = (words.length -1).toString();
+    });
+    for(int i = words.length -1; i> 0; i--){
+      reversedSentence += words[i-1] + ' ';
+    }
+    setState(() {
+      reversedSentence = reversedSentence;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Challenge 15'),
+      ),
       backgroundColor: Colors.teal.shade100,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -31,16 +49,33 @@ class _Challenge15State extends State<Challenge15> {
             width: double.infinity,
           ),
           MyTextField(
-            hint: 'Enter your Sentence of maximum 5 lines',
+            hint: 'EnterSentence finished with dot "." ',
             label: 'Sentence',
             myColor: Colors.teal.shade900,
-            type: TextInputType.multiline,
             onChange: setSentence,
           ),
           MyRaisedButton(
             text: 'Done',
             color: Colors.teal.shade900,
             onPressed: countWords,
+          ),
+          Text(
+            result != null ? result : '',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.orange,
+              fontSize: 30.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            reversedSentence.isNotEmpty ?  'Reversed Sentence:\n$reversedSentence' : '',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ],
       ),

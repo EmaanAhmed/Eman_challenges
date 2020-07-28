@@ -19,6 +19,9 @@ class _Challenge13State extends State<Challenge13> {
   String winner;
   bool isClickable = true;
 
+  //TODO: think of the challenge Extension
+
+
   @override
   void initState() {
     super.initState();
@@ -65,6 +68,9 @@ class _Challenge13State extends State<Challenge13> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Challenge 13'),
+      ),
       backgroundColor: Colors.teal.shade200,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
